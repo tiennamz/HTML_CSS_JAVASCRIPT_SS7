@@ -17,7 +17,7 @@ for(let i=0;i<numberPlayers;i++){
         alert("Mã cầu thủ trùng lặp");
     }
 } while (playerIds.indexOf(id)!==-1);
-playerIds.push(id)
+    playerIds.push(id);
 
     // Nhập vị trí
 let positions=+prompt(`Nhập vị trí của cầu thủ thứ ${i+1} (chọn số: 1=Thủ môn, 2=Hậu vệ, 3=Tiền vệ, 4=Tiền đạo)`);
@@ -60,7 +60,7 @@ ${i+1}. ${playerIds[i]} - ${playerPositions[i]}
 printTeamRoster();
 
 // hàm tìm kiếm cầu thủ
-function findPlayersByPosition(position){
+function findPlayersByPosition(positionSearch){
     if(positionSearch===1){
         console.log(`Số cầu thủ ở vị trí Thủ môn: ${numberPosition(playerPositions,"Thủ môn")}`);
         console.log(`Các chỉ số cầu thủ ở vị trí Thủ môn: ${indexPosition(playerPositions,"Thủ môn")}`);
@@ -107,11 +107,11 @@ function numberPosition(positionArray ,position){
  * @returns vị trí của thủ môn
  */
 function indexPosition(positionArray,position){
-    let indexPlayers;
+    let indexPlayers=[];
     for(let i=0;i<numberPlayers;i++){
         if(positionArray[i]===position){
-            indexPlayers += positionArray[i] + " ";
+            indexPlayers.push(i);   
         }
-    }
+    }   
     return indexPlayers;
 }
